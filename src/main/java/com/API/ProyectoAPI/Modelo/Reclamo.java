@@ -8,18 +8,24 @@ import lombok.Data;
 @Table(name = "reclamo")
 public class Reclamo {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Reclamo_SEQ")
-    @SequenceGenerator(name = "Reclamo_SEQ")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idReclamo", nullable = false)
     private Integer idReclamo;
 
-    @Column(name = "ubicacion", nullable = false, length = 300)
+    @Column(name = "ubicacion",length = 300)
     private String ubicacion;
-    @Column(name = "descrpicion", nullable = false,length = 1000)
+    @Column(name = "descrpicion",length = 1000)
     private String descripcion;
 
+    private int indentificador;
 
-    //TODO foreing key personas relacion 1-1
-    //TODO foreing key edificio relacion 1-1
+
+
+    @ManyToOne
+    @JoinColumn(name = "Documento")
+    private Persona persona;
+    @ManyToOne
+    @JoinColumn(name = "Codigo")
+    private Edificio edificio;
 
 }

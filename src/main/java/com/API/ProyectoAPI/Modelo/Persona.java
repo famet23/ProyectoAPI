@@ -1,9 +1,6 @@
 package com.API.ProyectoAPI.Modelo;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data //Esta anotacion es utilizada para evitar escribir getters, setters, constructores y tostring
@@ -11,18 +8,21 @@ import lombok.Data;
 @Table(name = "personas")
 public class Persona {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "documento", nullable = false, length = 20)
     private String Documento;
 
     @Column(name = "nombre", nullable = false, length = 100)
     private String Nombre;
 
-    @Column(name="Mail", unique = true, nullable = false, length = 100)//Mail y contraseña pueden ser nullos??
+    @Column(name="Mail", unique = true, length = 100)
     private String Mail;
-    @Column(name = "contraseña", nullable = false, length = 100)
+    @Column(name = "contraseña", length = 100) //No seria mejr dejarlos notnull?
     private String Contraseña;
 
-    //todo relacionar con tablas reclamos 1-n, y duenios/inquilinos como agregacion 1-1
+
+
+    //TODO duenios/inquilinos como agregacion
 
 
 

@@ -14,9 +14,12 @@ public class Imagen {
 
     @Column(name = "path", nullable = false, length = 300)
     private String path;
-    @Column(name = "tipo", nullable = false, length = 10)
+    @Column(name = "tipo", length = 10)
     private String tipo;
 
-    //TODO foreing key reclamo relacion n-1
+
+    @OneToOne
+    @JoinColumn(name= "idReclamo")
+    private Reclamo reclamo;
 
 }

@@ -17,6 +17,6 @@ public class Edificio {
     @Column(name = "direccion", nullable = false, length = 100)
     private String Direccion;
 
-    //TODO relacionar con tabla edificios 1-n
-    //TODO relacionar con reclamos 1-1
+
+
 }

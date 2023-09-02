@@ -19,7 +19,10 @@ public class Unidad {
     private String habilitado="";
 
 
-   //TODO foreing key de edificio "Codigo_edificio" n-1
-   //todo relacionar con tablas duenios/inquilinos como tablas de agregacion 1-n
+    @ManyToOne
+    @JoinColumn(name ="CodigoEdificio",referencedColumnName = "Codigo")
+    private Edificio edificio;
+
+   //todo relacionar con tablas duenios/inquilinos como tablas de agregacion
 
 }
