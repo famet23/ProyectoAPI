@@ -1,0 +1,25 @@
+package com.API.ProyectoAPI.Modelo;
+
+import jakarta.persistence.*;
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "unidad")
+public class Unidad {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "identificador", nullable = false)
+    private Integer identificador;
+    @Column(name = "piso", nullable = false, length = 5)
+    private int piso;
+    @Column(name = "numero", nullable = false, length = 10)
+    private int numero;
+    @Column(name = "habilitado", nullable = false, length = 1)
+    private String habilitado="";
+
+
+   //TODO foreing key de edificio "Codigo_edificio" n-1
+   //todo relacionar con tablas duenios/inquilinos como tablas de agregacion 1-n
+
+}
