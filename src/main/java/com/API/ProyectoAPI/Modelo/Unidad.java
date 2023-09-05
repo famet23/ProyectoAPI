@@ -1,10 +1,14 @@
 package com.API.ProyectoAPI.Modelo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "unidad")
 public class Unidad {
     @Id
@@ -23,6 +27,6 @@ public class Unidad {
     @JoinColumn(name ="CodigoEdificio",referencedColumnName = "Codigo")
     private Edificio edificio;
 
-   //todo relacionar con tablas duenios/inquilinos como tablas de agregacion
+   //TODO relacionar con tablas duenios/inquilinos como tablas de agregacion
 
 }

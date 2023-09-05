@@ -1,10 +1,14 @@
 package com.API.ProyectoAPI.Modelo;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "imagen")
 public class Imagen {
     @Id
