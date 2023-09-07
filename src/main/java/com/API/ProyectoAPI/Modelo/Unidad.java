@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @Entity
 @AllArgsConstructor
@@ -27,6 +29,18 @@ public class Unidad {
     @JoinColumn(name ="CodigoEdificio",referencedColumnName = "Codigo")
     private Edificio edificio;
 
-   //TODO relacionar con tablas duenios/inquilinos como tablas de agregacion
+    @ManyToMany
+    @JoinTable(name ="Duenio",
+            joinColumns = @JoinColumn(name = "identificador"),
+            inverseJoinColumns = @JoinColumn(name = "documento"))
+    private List<Persona> Duenio;
+
+    @ManyToMany
+    @JoinTable(name ="Inquilino",
+            joinColumns = @JoinColumn(name = "identificador"),
+            inverseJoinColumns = @JoinColumn(name = "documento"))
+    private List<Persona> inquilino;
+
+
 
 }
