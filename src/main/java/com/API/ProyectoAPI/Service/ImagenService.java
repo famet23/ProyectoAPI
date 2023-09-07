@@ -22,11 +22,11 @@ public class ImagenService {
         return imagenRepository.findAll();
     }
 
-    public Optional<Imagen> obtenerImagenPorId(String id) {
+    public Optional<Imagen> obtenerImagenPorId(Integer id) {
         return imagenRepository.findById(id);
     }
 
-    public void eliminarImagen(String id) {
+    public void eliminarImagen(Integer id) {
         imagenRepository.deleteById(id);
     }
 }

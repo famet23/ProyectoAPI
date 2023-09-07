@@ -22,11 +22,11 @@ public class ReclamoService {
         return reclamoRepository.findAll();
     }
 
-    public Optional<Reclamo> obtenerReclamoPorId(String id) {
+    public Optional<Reclamo> obtenerReclamoPorId(Integer id) {
         return reclamoRepository.findById(id);
     }
 
-    public void eliminarReclamo(String id) {
+    public void eliminarReclamo(Integer id) {
         reclamoRepository.deleteById(id);
     }
 }

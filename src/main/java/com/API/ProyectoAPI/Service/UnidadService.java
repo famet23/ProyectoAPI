@@ -22,11 +22,11 @@ public class UnidadService {
         return unidadRepository.findAll();
     }
 
-    public Optional<Unidad> obtenerUnidadPorId(String id) {
+    public Optional<Unidad> obtenerUnidadPorId(Integer id) {
         return unidadRepository.findById(id);
     }
 
-    public void eliminarUnidad(String id) {
+    public void eliminarUnidad(Integer id) {
         unidadRepository.deleteById(id);
     }
 }
