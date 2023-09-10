@@ -23,7 +23,7 @@ public class Reclamo {
     private String descripcion;
 
     @ManyToOne
-    @JoinColumn(name = "identificador")
+    @JoinColumn(name = "identificador")//Segun las clases la relacion tablien deberia estar con unidad
     private Unidad unidad;
 
     @OneToMany

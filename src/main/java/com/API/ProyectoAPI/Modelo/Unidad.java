@@ -23,9 +23,6 @@ public class Unidad {
     @ManyToOne
     private Edificio edificio;
 
-
-
-
     @ManyToMany
     @JoinTable(name ="Duenios",
             joinColumns = @JoinColumn(name = "identificador"),
@@ -121,25 +118,15 @@ public class Unidad {
         return habitado;
     }
 
-    public void setHabilitado(Boolean habilitado) {
-        this.habitado = habilitado;
-    }
 
     public List<Persona> getDuenio() {
         return duenios;
-    }
-
-    public void setDuenio(List<Persona> duenio) {
-        duenios = duenio;
     }
 
     public List<Persona> getInquilino() {
         return inquilinos;
     }
 
-    public void setInquilino(List<Persona> inquilino) {
-        this.inquilinos = inquilino;
-    }
 
     @Override
     public String toString() {
