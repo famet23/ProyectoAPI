@@ -2,6 +2,7 @@ package com.API.ProyectoAPI.Service;
 
 
 import com.API.ProyectoAPI.Modelo.Persona;
+import com.API.ProyectoAPI.Repository.ImagenRepository;
 import com.API.ProyectoAPI.Repository.PersonaRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,23 +13,12 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
+@AllArgsConstructor
 public class PersonaService {
 
-    /*private final PersonaRepository personaRepository;
+    private final PersonaRepository personaRepository;
 
-    Constructor que toma PersonaRepository como argumento
-    public PersonaService(PersonaRepository personaRepository) {
-        this.personaRepository = personaRepository;
-    }
 
-     */
-    private PersonaRepository personaRepository;
-
-    // Setter para PersonaRepository
-    public void setPersonaRepository(PersonaRepository personaRepository) {
-        this.personaRepository = personaRepository;
-    }
 
     public Persona GuardarPersona(Persona persona){
         return personaRepository.save(persona);
@@ -47,4 +37,5 @@ public class PersonaService {
         personaRepository.deleteById(id);
     }
 
+    //Actualizar
 }

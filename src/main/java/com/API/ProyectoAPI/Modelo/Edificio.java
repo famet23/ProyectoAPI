@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Table(name = "edificios")
 public class Edificio {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "codigo", nullable = false)
     private Integer Codigo;
 

@@ -14,7 +14,7 @@ import java.util.List;
 @Table(name = "unidades")
 public class Unidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "identificador", nullable = false)
     private Integer identificador;
     @Column(name = "piso", nullable = false, length = 5)

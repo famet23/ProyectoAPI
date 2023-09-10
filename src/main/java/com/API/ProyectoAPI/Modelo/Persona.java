@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 public class Persona {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "documento", nullable = false, length = 20)
     private String Documento;
 
@@ -22,7 +21,7 @@ public class Persona {
 
     @Column(name="Mail", unique = true, length = 100)
     private String Mail;
-    @Column(name = "contraseña", length = 100)
+    @Column(name = "contrasenia", length = 100)
     private String Contrasenia;
 
 
