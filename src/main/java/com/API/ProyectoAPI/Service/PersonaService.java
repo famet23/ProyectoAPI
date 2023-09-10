@@ -28,7 +28,6 @@ public class PersonaService {
         return personaRepository.findAll();
     }
 
-    //posible exception throw si no se encuentra id o es de otro tipo
     public Optional<Persona> BusquedaId(String id){
         return personaRepository.findById(id);
     }
@@ -37,8 +36,5 @@ public class PersonaService {
         personaRepository.deleteById(id);
     }
 
-    //Actualizar
-    public void ActualizarPersonas(String id){
 
-    }
 }
