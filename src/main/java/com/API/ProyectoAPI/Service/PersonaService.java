@@ -18,8 +18,6 @@ public class PersonaService {
 
     private final PersonaRepository personaRepository;
 
-
-
     public Persona GuardarPersona(Persona persona){
         return personaRepository.save(persona);
     }
@@ -35,10 +33,5 @@ public class PersonaService {
 
     public void EliminarPersona(String id){
         personaRepository.deleteById(id);
-    }
-
-    //Actualizar
-    public void ActualizarPersonas(String id){
-
     }
 }
