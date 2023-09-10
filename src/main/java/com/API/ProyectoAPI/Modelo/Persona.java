@@ -1,15 +1,10 @@
 package com.API.ProyectoAPI.Modelo;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
-@Data //Esta anotacion es utilizada para evitar escribir getters, setters, constructores y tostring
+
 @Entity
 @Table(name = "personas")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Persona {
 
     @Id
@@ -24,8 +19,56 @@ public class Persona {
     @Column(name = "contrasenia", length = 100)
     private String Contrasenia;
 
+    public Persona(String documento, String nombre, String mail, String contrasenia) {
+        Documento = documento;
+        Nombre = nombre;
+        Mail = mail;
+        Contrasenia = contrasenia;
+    }
+    public Persona(){}
+
+    public void cambiarPasword(String password) {
+        this.Contrasenia = password;
+    }
 
 
 
+    public String getDocumento() {
+        return Documento;
+    }
 
+    public void setDocumento(String documento) {
+        Documento = documento;
+    }
+
+    public String getNombre() {
+        return Nombre;
+    }
+
+    public void setNombre(String nombre) {
+        Nombre = nombre;
+    }
+
+    public String getMail() {
+        return Mail;
+    }
+
+    public void setMail(String mail) {
+        Mail = mail;
+    }
+
+    public String getContrasenia() {
+        return Contrasenia;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Persona{" +
+                "Documento='" + Documento + '\'' +
+                ", Nombre='" + Nombre + '\'' +
+                ", Mail='" + Mail + '\'' +
+                ", Contrasenia='" + Contrasenia + '\'' +
+                '}';
+    }
 }
