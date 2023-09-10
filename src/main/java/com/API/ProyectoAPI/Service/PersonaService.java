@@ -38,4 +38,7 @@ public class PersonaService {
     }
 
     //Actualizar
+    public void ActualizarPersonas(String id){
+
+    }
 }
