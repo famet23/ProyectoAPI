@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "imagen")
+@Table(name = "imagenes")
 public class Imagen {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

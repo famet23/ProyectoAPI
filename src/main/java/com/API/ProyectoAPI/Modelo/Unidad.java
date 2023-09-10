@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "unidad")
+@Table(name = "unidades")
 public class Unidad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,13 +30,13 @@ public class Unidad {
     private Edificio edificio;
 
     @ManyToMany
-    @JoinTable(name ="Duenio",
+    @JoinTable(name ="Duenios",
             joinColumns = @JoinColumn(name = "identificador"),
             inverseJoinColumns = @JoinColumn(name = "documento"))
     private List<Persona> Duenio;
 
     @ManyToMany
-    @JoinTable(name ="Inquilino",
+    @JoinTable(name ="Inquilinos",
             joinColumns = @JoinColumn(name = "identificador"),
             inverseJoinColumns = @JoinColumn(name = "documento"))
     private List<Persona> inquilino;

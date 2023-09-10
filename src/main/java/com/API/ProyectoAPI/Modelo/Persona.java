@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Persona {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "documento", nullable = false, length = 20)
@@ -21,11 +22,10 @@ public class Persona {
 
     @Column(name="Mail", unique = true, length = 100)
     private String Mail;
-    @Column(name = "contraseña", length = 100) //No seria mejr dejarlos notnull?
+    @Column(name = "contraseña", length = 100)
     private String Contrasenia;
 
-    //Prueba de un cambio en contrasenia y comenario, para hacer un commit, push y pull request.
-    //TODO duenios/inquilinos como agregacion
+
 
 
 
