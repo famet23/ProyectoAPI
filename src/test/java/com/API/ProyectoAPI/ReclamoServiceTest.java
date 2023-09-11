@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
@@ -26,51 +28,66 @@ public class ReclamoServiceTest {
     @Autowired
     UnidadRepository unidadRepository;
 
-    //verificar la manera de buscarlo por codigo de edificio
     @Test
-    private void testReclamosPorEdificio(){
-        //TODO Reclamo reclamo = reclamoRepository.
+    public void testReclamosPorEdificio(){
+        //encuentra los reclamos por edificio
+        Edificio edificio = edificioRepository.findById(1).get();
+        System.out.println(edificio);
+        List<Reclamo> reclamos = reclamoRepository.findAll();
+        for(Reclamo reclamo: reclamos) {
+            if (reclamo.getEdificio().equals(edificio)) {
+                System.out.println(reclamo);
+            }
+        }
+
+        assert (reclamos.size() > 0);
     }
     @Test
-    private void testReclamosPorUnidad(){
-        //TODO encontrar la manera de buscarlo por identificador de unidad
+    public void testReclamosPorUnidad(){
+        //encuentra los reclamos por unidad
+        Unidad unidad = unidadRepository.findById(1).get();
+        System.out.println(unidad);
+        List<Reclamo> reclamos = reclamoRepository.findAll();
+        for(Reclamo reclamo: reclamos) {
+            if (reclamo.getUnidad().equals(unidad)) {
+                System.out.println(reclamo);
+            }
+        }
+
+        assert (reclamos.size() > 0);
     }
 
     @Test
-    private void testReclamosPorNumero(){
+    public void testReclamosPorNumero(){
         Reclamo reclamo = reclamoRepository.findById(1).get();
         System.out.println(reclamo);
         assertNotNull(reclamo);
 
     }
     @Test
-    private void testReclamosPosNumero(){
-        //TODO encontrar la manera de hacerlo
-    }
-
-    @Test
-    private void testAgregarReclamo(){
+    public void testAgregarReclamo(){
         Persona persona = personaRepository.findById("1010101").get();
         Edificio edificio = edificioRepository.findById(1).get();
         Unidad unidad = unidadRepository.findById(1).get();
-        Reclamo reclamo = new Reclamo(persona,edificio, "Mogliani 425", "Goteras", unidad);
+        Reclamo reclamo = new Reclamo(persona, edificio, "Mogliani 425", "Goteras", unidad);
         Reclamo reclamoGuardada = reclamoRepository.save(reclamo);
         assertNotNull(reclamoGuardada);
     }
     @Test
-    private void testAgregarImagenReclamo(){
+    public void testAgregarImagenReclamo(){
         Persona persona = personaRepository.findById("1010101").get();
         Edificio edificio = edificioRepository.findById(1).get();
         Unidad unidad = unidadRepository.findById(1).get();
-        Reclamo reclamo = new Reclamo(persona,edificio, "Mogliani 425", "Goteras", unidad);
-        //como probar este metodo?
+        Reclamo reclamo = new Reclamo(persona, edificio, "Mogliani 425", "Goteras", unidad);
         reclamo.agregarImagen("direccion", "Tipo");
+        assertNotNull(reclamo.getImagenes());
     }
 
     @Test
-    private void testCambiarEstado(){
+    public void testCambiarEstado(){
         Reclamo reclamo = reclamoRepository.findById(1).get();
         reclamo.cambiarEstado(Estado.desestimado);
+        assertNotNull(reclamo.getEstado());
     }
 }
 

@@ -28,7 +28,7 @@ public class EdificioServiceTest {
     }
 
     @Test
-    public  void testHabilitadosPosEdificio(){
+    public void testHabilitadosPosEdificio(){
             int codigo=1;
             Edificio edificio = edificioRepository.findById(codigo).get();
 
@@ -40,7 +40,7 @@ public class EdificioServiceTest {
     }
 
     @Test
-    public  void testDueniosPorEdificio(){
+    public void testDueniosPorEdificio(){
         int codigo=1;
         Edificio edificio = edificioRepository.findById(codigo).get();
 
@@ -52,7 +52,7 @@ public class EdificioServiceTest {
     }
 
     @Test
-    public  void testHabitantesPorEdificio(){
+    public void testHabitantesPorEdificio(){
         int codigo=1;
         Edificio edificio = edificioRepository.findById(codigo).get();
 
