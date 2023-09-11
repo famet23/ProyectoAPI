@@ -11,6 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.w3c.dom.stylesheets.LinkStyle;
 
 import java.util.List;
+import java.util.Objects;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -23,7 +24,7 @@ public class UnidadServiceTest {
     @Autowired
     PersonaRepository personaRepository;
     @Test
-    private void testDueniosPorUnidad(){
+    public void testDueniosPorUnidad(){
         int identificador=1;
         Unidad unidad = unidadRepository.findById(identificador).get();
 
@@ -31,11 +32,12 @@ public class UnidadServiceTest {
 
         for(Persona duenio: duenios)
             System.out.println(duenio);
+
         assertNotNull(duenios);
     }
 
     @Test
-    private void testInquilinosPorUnidad(){
+    public void testInquilinosPorUnidad(){
         int identificador=1;
         Unidad unidad = unidadRepository.findById(identificador).get();
 
@@ -43,6 +45,7 @@ public class UnidadServiceTest {
 
         for(Persona inquilino: inquilinos)
             System.out.println(inquilino);
+
         assertNotNull(inquilinos);
     }
 
@@ -50,55 +53,63 @@ public class UnidadServiceTest {
     // realizar el assert para cada metodo y asi verificar si el test funciona
     //Tambien ver como funcionan las excepciones
     @Test
-    private  void testTransferirUnidad(){
+    public void testTransferirUnidad(){
         int identificador=1;
         String documento="1010101";
         Unidad unidad = unidadRepository.findById(identificador).get();
         Persona persona = personaRepository.findById(documento).get();
-
         unidad.transferir(persona);
+
+        assertNotNull(unidad.getDuenio());
     }
 
     @Test
-    private  void testAgregarDuenio(){
+    public void testAgregarDuenio(){
         int identificador=1;
         String documento="1010101";
         Unidad unidad = unidadRepository.findById(identificador).get();
         Persona persona = personaRepository.findById(documento).get();
-
         unidad.agregarDuenio(persona);
+
+        assert(Objects.equals(unidad.getDuenio(), persona));
     }
 
     @Test
-    private void testAlquilarUnidad() throws UnidadException {
+    public void testAlquilarUnidad() throws UnidadException {
         int identificador=1;
         String documento="1010101";
         Unidad unidad = unidadRepository.findById(identificador).get();
         Persona persona = personaRepository.findById(documento).get();
-
         unidad.alquilar(persona);
+
+        assert(Objects.equals(unidad.getInquilino(), persona));
     }
     @Test
-    private  void testAgregarInquilinoUnidad(){
+    public void testAgregarInquilinoUnidad(){
         int identificador=1;
         String documento="1010101";
         Unidad unidad = unidadRepository.findById(identificador).get();
         Persona persona = personaRepository.findById(documento).get();
-
         unidad.agregarInquilino(persona);
+
+        assert(Objects.equals(unidad.getInquilino(), persona));
     }
 
     @Test
-    private void testLiberarUnidad(){
+    public void testLiberarUnidad(){
         int identificador=1;
         Unidad unidad = unidadRepository.findById(identificador).get();
         unidad.liberar();
+
+        assert(!unidad.estaHabitado());
     }
 
     @Test
-    private void testHabitarUnidad() throws UnidadException {
+    public void testHabitarUnidad() throws UnidadException {
         int identificador=1;
         Unidad unidad = unidadRepository.findById(identificador).get();
         unidad.habitar();
+
+        assert(unidad.estaHabitado());
     }
 }
