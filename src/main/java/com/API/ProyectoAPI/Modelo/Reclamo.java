@@ -19,7 +19,7 @@ public class Reclamo {
 
     @Column(name = "ubicacion",length = 300)
     private String ubicacion;
-    @Column(name = "descrpicion",length = 1000)
+    @Column(name = "descripicion",length = 1000)
     private String descripcion;
 
     @ManyToOne
@@ -71,7 +71,7 @@ public class Reclamo {
     }
 
     public Edificio getEdificio() {
-        return edificio;
+        return this.edificio;
     }
 
     public String getDescripcion() {

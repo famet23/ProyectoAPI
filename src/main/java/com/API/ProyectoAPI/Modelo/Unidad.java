@@ -19,18 +19,21 @@ public class Unidad {
     private int numero;
     @Column(name = "habitado", nullable = false)//No se comprende por que en la base de datos esta como string
     private Boolean habitado;
-
+    @Column(name = "codigoEdificio", nullable = false)
     @ManyToOne
+    @JoinTable(name = "edificios",
+            joinColumns = @JoinColumn(name = "codigoEdificio"),
+            inverseJoinColumns = @JoinColumn(name = "codigo"))
     private Edificio edificio;
 
     @ManyToMany
-    @JoinTable(name ="Duenios",
+    @JoinTable(name ="duenios",
             joinColumns = @JoinColumn(name = "identificador"),
             inverseJoinColumns = @JoinColumn(name = "documento"))
     private List<Persona> duenios;
 
     @ManyToMany
-    @JoinTable(name ="Inquilinos",
+    @JoinTable(name ="inquilinos",
             joinColumns = @JoinColumn(name = "identificador"),
             inverseJoinColumns = @JoinColumn(name = "documento"))
     private List<Persona> inquilinos;

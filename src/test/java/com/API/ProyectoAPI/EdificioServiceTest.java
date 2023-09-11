@@ -3,6 +3,8 @@ package com.API.ProyectoAPI;
 import com.API.ProyectoAPI.Modelo.Edificio;
 import com.API.ProyectoAPI.Modelo.Persona;
 import com.API.ProyectoAPI.Repository.EdificioRepository;
+import com.API.ProyectoAPI.Service.EdificioService;
+import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -13,6 +15,7 @@ import java.util.Set;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
+@Transactional
 public class EdificioServiceTest {
 
     @Autowired
@@ -22,7 +25,7 @@ public class EdificioServiceTest {
     public void testGetAll() {
         List<Edificio> edificios = edificioRepository.findAll();
         for (Edificio edificio : edificios) {
-            System.out.println(edificio);
+            System.out.print(edificio);
         }
         assertNotNull(edificios);
     }
