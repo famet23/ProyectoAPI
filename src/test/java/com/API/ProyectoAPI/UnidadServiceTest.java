@@ -30,7 +30,7 @@ public class UnidadServiceTest {
 
         List<Persona> duenios= unidad.getDuenio();
 
-        for(Persona duenio: duenios)
+        for(Persona persona: duenios)
             System.out.println(duenio);
 
         assertNotNull(duenios);
@@ -43,7 +43,7 @@ public class UnidadServiceTest {
 
         List<Persona> inquilinos= unidad.getInquilino();
 
-        for(Persona inquilino: inquilinos)
+        for(Persona persona: inquilinos)
             System.out.println(inquilino);
 
         assertNotNull(inquilinos);

@@ -24,6 +24,7 @@ public class EdificioServiceTest {
     @Test
     public void testGetAll() {
         List<Edificio> edificios = edificioRepository.findAll();
+        Edificio edificio = buscarEdificio(codigo);
         for (Edificio edificio : edificios) {
             System.out.print(edificio);
         }
@@ -31,12 +32,12 @@ public class EdificioServiceTest {
     }
 
     @Test
-    public void testHabilitadosPosEdificio(){
+    public void testHabilitadosPorEdificio(){
             int codigo=1;
             Edificio edificio = edificioRepository.findById(codigo).get();
 
             Set<Persona> habilitados = edificio.habilitados();
-            for(Persona habilitado: habilitados){
+            for(Persona persona: habilitados){
                 System.out.println(habilitado);
             }
             assertNotNull(habilitados);
@@ -48,7 +49,7 @@ public class EdificioServiceTest {
         Edificio edificio = edificioRepository.findById(codigo).get();
 
         Set<Persona> duenios = edificio.duenios();
-        for(Persona duenio: duenios){
+        for(Persona persona: duenios){
             System.out.println(duenio);
         }
         assertNotNull(duenios);
@@ -59,8 +60,8 @@ public class EdificioServiceTest {
         int codigo=1;
         Edificio edificio = edificioRepository.findById(codigo).get();
 
-        Set<Persona> habitantes = edificio.habitantes();
-        for(Persona habitante: habitantes){
+        Set<Persona> habitantes = edificio.duenios();
+        for(Persona persona: habitantes){
             System.out.println(habitante);
         }
         assertNotNull(habitantes);

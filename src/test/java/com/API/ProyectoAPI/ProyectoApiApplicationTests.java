@@ -19,6 +19,13 @@ class ProyectoApiApplicationTests {
 
 	@Test
 	void contextLoads() {
+		Persona persona = new persona();
+		persona.setDocumento("12345678")
+		Persona.setNombre("juan")
+		persona.setDireccion("Calle 123")
+		persona.setNumero("123456789")
+		persona.setMail("juanperez@gmail.com")
+	
 	}
 
 }
