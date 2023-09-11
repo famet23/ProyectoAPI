@@ -22,13 +22,16 @@ public class Edificio {
     private String Direccion;
 
     @OneToMany
+    @JoinTable(name = "unidades",
+            joinColumns = @JoinColumn(name = "codigo"),
+            inverseJoinColumns = @JoinColumn(name = "codigoEdificio"))
     private List<Unidad> unidades;
 
     public Edificio(Integer codigo, String nombre, String direccion) {
         this.Codigo = codigo;
         this.Nombre = nombre;
         this.Direccion = direccion;
-        unidades = new ArrayList<Unidad>();
+        unidades = new ArrayList<Unidad>()  ;
     }
     public Edificio(){
 
